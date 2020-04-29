@@ -25,6 +25,11 @@ public class ListTest
     //~ Static fields/initializers ---------------------------------------------
 
     private static List<String> USERS = Arrays.asList("joe", "john", "mickey");
+    
+    public static boolean getRandomBoolean() {
+        return Math.random() < 0.5;
+        // I tried another approaches here, still the same result
+    }
 
     //~ Instance fields --------------------------------------------------------
 
@@ -53,4 +58,16 @@ public class ListTest
     {
         assertFalse(m_list.contains("matthew"));
     }
+    @Test public void random_status_test()
+    {
+        assertTrue(getRandomBoolean());
+    }
+    
+    @Test public void long_test()
+    {
+        TimeUnit.SECONDS.sleep(12);
+        assertTrue(true);
+    }
+
 }
+
