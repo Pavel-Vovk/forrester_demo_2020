@@ -63,7 +63,7 @@ public class ListTest
         assertTrue(getRandomBoolean());
     }
     
-    @Test public void long_test()
+    @Test public void long_test() throws Exception
     {
         try{
             TimeUnit.SECONDS.sleep(12);
