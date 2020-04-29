@@ -65,8 +65,12 @@ public class ListTest
     
     @Test public void long_test()
     {
-        TimeUnit.SECONDS.sleep(12);
-        assertTrue(m_list.contains("joe"));
+        try{
+            TimeUnit.SECONDS.sleep(12);
+            assertTrue(m_list.contains("joe"));
+        }catch(Exception e){
+            return null;
+        }
     }
 
 }
