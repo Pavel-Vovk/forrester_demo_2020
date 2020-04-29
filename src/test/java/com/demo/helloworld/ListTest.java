@@ -65,6 +65,7 @@ public class ListTest
     
     @Test public void long_test() throws Exception
     {
+        m_list.add("joe");
         try{
             TimeUnit.SECONDS.sleep(12);
             assertTrue(m_list.contains("joe"));
