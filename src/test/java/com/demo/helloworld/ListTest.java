@@ -66,7 +66,7 @@ public class ListTest
     @Test public void long_test()
     {
         TimeUnit.SECONDS.sleep(12);
-        assertTrue(true);
+        assertTrue(m_list.contains("joe"));
     }
 
 }
