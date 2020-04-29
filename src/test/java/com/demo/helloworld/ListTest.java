@@ -18,7 +18,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeUnit;
 public class ListTest
 {
 
