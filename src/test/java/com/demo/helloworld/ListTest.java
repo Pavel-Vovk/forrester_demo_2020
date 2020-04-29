@@ -69,7 +69,7 @@ public class ListTest
             TimeUnit.SECONDS.sleep(12);
             assertTrue(m_list.contains("joe"));
         }catch(Exception e){
-             throw new IOException("Sleep???  :( ");
+             throw new Exception("Sleep???  :( ");
         }
     }
 
