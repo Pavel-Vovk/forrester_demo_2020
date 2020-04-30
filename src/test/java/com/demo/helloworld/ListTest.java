@@ -30,6 +30,16 @@ public class ListTest
         return Math.random() < 0.7;
         // I tried another approaches here, still the same result
     }
+    private static int getRandomNumberInRange(int min, int max) throws Exception {
+
+	    if (min >= max) {
+		    throw new IllegalArgumentException("max must be greater than min");
+	    }
+
+	    Random r = new Random();
+	    return r.nextInt((max - min) + 1) + min;
+    }
+    
 
     //~ Instance fields --------------------------------------------------------
 
@@ -67,10 +77,10 @@ public class ListTest
     {
         m_list.add("joe");
         try{
-            TimeUnit.SECONDS.sleep(12);
+            TimeUnit.SECONDS.sleep(getRandomNumberInRange(int 7, int 20));
             assertTrue(m_list.contains("joe"));
         }catch(Exception e){
-             throw new Exception("Sleep???  :( ");
+             throw new Exception("Can't sleep...  :( ");
         }
     }
 
