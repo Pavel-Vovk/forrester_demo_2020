@@ -27,7 +27,7 @@ public class ListTest
     private static List<String> USERS = Arrays.asList("joe", "john", "mickey");
     
     public static boolean getRandomBoolean() {
-        return Math.random() < 0.5;
+        return Math.random() < 0.7;
         // I tried another approaches here, still the same result
     }
 
