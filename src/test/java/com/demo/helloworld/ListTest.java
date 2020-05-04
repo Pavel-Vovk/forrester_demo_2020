@@ -26,10 +26,13 @@ public class ListTest
 
     //~ Static fields/initializers ---------------------------------------------
 
+    private static int timeWaitMin = 7;
+    private static int timeWaitMax = 25;
+    private static double probabilityTrue = 0.7;
     private static List<String> USERS = Arrays.asList("joe", "john", "mickey");
     
-    public static boolean getRandomBoolean() {
-        return Math.random() < 0.7;
+    public static boolean getRandomBoolean(double probabilityTrue) {
+        return Math.random() < probabilityTrue;
         // I tried another approaches here, still the same result
     }
     private static int getRandomNumberInRange(int min, int max) throws Exception {
@@ -70,16 +73,18 @@ public class ListTest
     {
         assertFalse(m_list.contains("matthew"));
     }
+
+    //the test for Random status, butt jenkins can't finish the Pipeline in this case.
     @Test public void random_status_test()
     {
-        assertTrue(getRandomBoolean());
+        assertTrue(getRandomBoolean(probabilityTrue));
     }
     
     @Test public void long_test() throws Exception
     {
         m_list.add("joe");
         try{
-            TimeUnit.SECONDS.sleep(getRandomNumberInRange(7, 20));
+            TimeUnit.SECONDS.sleep(getRandomNumberInRange(timeWaitMin, timeWaitMax));
             assertTrue(m_list.contains("joe"));
         }catch(Exception e){
              throw new Exception("Can't sleep...  :( ");
