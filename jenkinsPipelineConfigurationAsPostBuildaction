@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                cleanWs()
+                git 'https://github.com/Pavel-Vovk/forrester_demo_2020.git'
+                sh '/usr/share/maven/bin/mvn install'
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts 'target/*.jar'
+            junit 'target/surefire-reports/*.xml'
+            cloudBeesFlowPublishArtifact artifactName: 'com.demo:pv_helloworld', artifactVersion: '${BUILD_NUMBER}-SNAPSHOT', configuration: 'electricflow', overrideCredential: [credentialId: '4'], filePath: 'target/helloworld-1.0-SNAPSHOT.jar', repositoryName: 'default'
+            cloudBeesFlowRunPipeline addParam: '{"pipeline":{"pipelineName":"pvNativeJenkinsTestPipeline02","parameters":[]}}', configuration: 'electricflow', overrideCredential: [credentialId: '4'], pipelineName: 'pvNativeJenkinsTestPipeline02', projectName: 'pvNativeJenkinsProject01'
+            cloudBeesFlowAssociateBuildToRelease configuration: 'electricflow', overrideCredential: [credentialId: '4'], projectName: 'pvNativeJenkinsProject01', releaseName: 'pvRelease'
+        }
+    }
+}
