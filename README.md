@@ -1,4 +1,4 @@
-# Spring Boot Hello World
+# Hello World
 Jenkins build
 ```
 mvn install
