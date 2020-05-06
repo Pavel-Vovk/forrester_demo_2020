@@ -1,4 +1,10 @@
 # Spring Boot Hello World
+Jenkins build
+```
+mvn install
+```
+
+# Spring Boot Hello World
 
 A spring boot enabled hello world application
 
